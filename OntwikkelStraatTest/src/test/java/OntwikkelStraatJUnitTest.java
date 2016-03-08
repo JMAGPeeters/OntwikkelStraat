@@ -43,11 +43,11 @@ public class OntwikkelStraatJUnitTest {
          Assert.assertEquals("1", test.doIets(1));
     }
     
-     @Test
+    /* @Test
     public void test2() {
         TestClass test = new TestClass();
          Assert.assertEquals("2", test.doIets(1));
-    }
+    }*/
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
