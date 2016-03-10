@@ -57,6 +57,11 @@
           <pluginClass>com.mycompany.sonarqube.ExamplePlugin</pluginClass>
         </configuration>
       </plugin>
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>0.7.7-SNAPSHOT</version>
+        </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
