@@ -52,7 +52,7 @@ public class OntwikkelStraatJUnitTest {
         @Test
     public void test3() {
         TestClass test = new TestClass();
-         Assert.assertEquals("4", test.doIets(3));
+         Assert.assertEquals("3", test.doIets(3));
     }
 
     // TODO add test methods here.
