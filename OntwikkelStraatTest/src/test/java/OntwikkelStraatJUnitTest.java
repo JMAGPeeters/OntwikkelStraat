@@ -46,7 +46,7 @@ public class OntwikkelStraatJUnitTest {
      @Test
     public void test2() {
         TestClass test = new TestClass();
-         Assert.assertEquals("2", test.doIets(1));
+         Assert.assertEquals("2", test.doIets(2));
     }
 
     // TODO add test methods here.
@@ -62,7 +62,7 @@ public class OntwikkelStraatJUnitTest {
         }
 
         public String doIets(int i) {
-           return "1";
+           return Integer.toString(i);
         }
     }    
 }
