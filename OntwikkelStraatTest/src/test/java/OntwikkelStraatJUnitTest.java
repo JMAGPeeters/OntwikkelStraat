@@ -58,7 +58,7 @@ public class OntwikkelStraatJUnitTest {
       @Test
     public void test4() {
         TestClass test = new TestClass();
-         Assert.assertEquals("5", test.doIets(4));
+         Assert.assertEquals("4", test.doIets(4));
     }
 
     // TODO add test methods here.
