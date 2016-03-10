@@ -48,6 +48,12 @@ public class OntwikkelStraatJUnitTest {
         TestClass test = new TestClass();
          Assert.assertEquals("2", test.doIets(2));
     }
+    
+        @Test
+    public void test3() {
+        TestClass test = new TestClass();
+         Assert.assertEquals("4", test.doIets(3));
+    }
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
