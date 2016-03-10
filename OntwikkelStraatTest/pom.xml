@@ -43,6 +43,8 @@
       <properties>
             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
           <sonar.buildVersion>5.3</sonar.buildVersion>
+           <jacoco.it.execution.data.file>${project.build.directory}/coverage-reports/jacoco-it.exec</jacoco.it.execution.data.file>
+        <jacoco.ut.execution.data.file>${project.build.directory}/coverage-reports/jacoco-ut.exec</jacoco.ut.execution.data.file>
           <jdk.min.version>1.7</jdk.min.version>
       </properties>
     
@@ -58,9 +60,9 @@
         </configuration>
       </plugin>
         <plugin>
-          <groupId>org.jacoco</groupId>
-          <artifactId>jacoco-maven-plugin</artifactId>
-          <version>0.7.7-SNAPSHOT</version>
+           <groupId>org.jacoco</groupId>
+           <artifactId>jacoco-maven-plugin</artifactId>
+           <version>0.7.5.201505241946</version>
         </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

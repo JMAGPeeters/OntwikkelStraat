@@ -10,5 +10,12 @@
  */
 public class TestClass {
     
+      public TestClass() {
+            
+        }
+
+        public String doIets(int i) {
+           return Integer.toString(i);
+        }
     /////
 }
