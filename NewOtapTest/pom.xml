@@ -12,9 +12,9 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-          <sonar.buildVersion>5.3</sonar.buildVersion>
-          <jdk.min.version>1.7</jdk.min.version>
-          <glassfish.properties.file.argument></glassfish.properties.file.argument>
+        <sonar.buildVersion>5.3</sonar.buildVersion>
+        <jdk.min.version>1.7</jdk.min.version>
+        <glassfish.properties.file.argument></glassfish.properties.file.argument>
     </properties>
     
     <dependencies>
@@ -30,86 +30,96 @@
             <scope>provided</scope>
         </dependency>
         
-         <dependency>
-      <groupId>org.sonarsource.sonarqube</groupId>
-      <artifactId>sonar-plugin-api</artifactId>
-      <version>5.4-RC4</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <!-- packaged with the plugin -->
-      <groupId>commons-lang</groupId>
-      <artifactId>commons-lang</artifactId>
-      <version>2.6</version>
-    </dependency>
-    <!-- unit tests -->
-    <dependency>
-        <groupId>org.codehaus.sonar</groupId>
-	<artifactId>sonar-testing-harness</artifactId>
-	<version>5.1</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.easytesting</groupId>
-      <artifactId>fest-assert</artifactId>
-      <version>1.4</version>
-      <scope>test</scope>
-    </dependency>
+        <dependency>
+            <groupId>org.sonarsource.sonarqube</groupId>
+            <artifactId>sonar-plugin-api</artifactId>
+            <version>5.4-RC4</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <!-- packaged with the plugin -->
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+        <!-- unit tests -->
+        <dependency>
+            <groupId>org.codehaus.sonar</groupId>
+            <artifactId>sonar-testing-harness</artifactId>
+            <version>5.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.easytesting</groupId>
+            <artifactId>fest-assert</artifactId>
+            <version>1.4</version>
+            <scope>test</scope>
+        </dependency>
         
     </dependencies>
 
     <build>
         <plugins>
             
-                 <plugin>
-        <groupId>org.sonarsource.sonar-packaging-maven-plugin</groupId>
-        <artifactId>sonar-packaging-maven-plugin</artifactId>
-        <version>1.15</version>
-        <extensions>true</extensions>
-        <configuration>
-          <pluginClass>com.mycompany.sonarqube.ExamplePlugin</pluginClass>
-        </configuration>
-      </plugin>
-        <plugin>
-           <groupId>org.jacoco</groupId>
-           <artifactId>jacoco-maven-plugin</artifactId>
-           <version>0.7.5.201505241946</version>
-           <executions>
-                <execution>
-                    <goals>
-                        <goal>prepare-agent</goal>
-                    </goals>
-                </execution>
-                <execution>
-                    <id>report</id>
-                    <phase>prepare-package</phase>
-                    <goals>
-                        <goal>report</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
-         <plugin>
-        <!-- UTF-8 bundles are not supported by Java, so they must be converted during build -->
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>native2ascii-maven-plugin</artifactId>
-            <version>1.0-beta-1</version>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>native2ascii</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
+            <plugin>
+                <groupId>org.sonarsource.sonar-packaging-maven-plugin</groupId>
+                <artifactId>sonar-packaging-maven-plugin</artifactId>
+                <version>1.15</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <pluginClass>com.mycompany.sonarqube.ExamplePlugin</pluginClass>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.7.5.201505241946</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <!-- UTF-8 bundles are not supported by Java, so they must be converted during build -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>native2ascii-maven-plugin</artifactId>
+                <version>1.0-beta-1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>native2ascii</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
           
-           <plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>properties-maven-plugin</artifactId>
                 <version>1.0-alpha-2</version>
@@ -155,14 +165,6 @@
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
             <plugin>
